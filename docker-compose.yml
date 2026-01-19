@@ -219,8 +219,8 @@ services:
       - ./models/huggingface_cache:/root/.cache/huggingface:rw
       # ModelScope 模型缓存（持久化，国内模型下载）
       - ./models/modelscope_cache:/root/.cache/modelscope:rw
-      # 上传文件（只读，统一使用 /app/data 路径）
-      - ./data/uploads:/app/data/uploads:ro
+      # 上传文件（读写 - Office 转 PDF 功能需要写入转换后的 PDF，统一使用 /app/data 路径）
+      - ./data/uploads:/app/data/uploads:rw
       # 输出结果
       - ./data/output:/app/data/output:rw
       # 日志
